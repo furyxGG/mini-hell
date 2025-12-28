@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 18:36:09 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/12/28 18:46:04 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/12/28 21:03:09 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ void	minishell()
 			break;
 		}
 		if (*line)
-            add_history(line);
-
+        	add_history(line);
 		printf("Girdi: %s\n", line);
 		free(line);
 	}

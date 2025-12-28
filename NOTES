@@ -1,0 +1,12 @@
+yazılan komutta 3 temel eleman olabilir:
+1 - PIPE		|				--> bildiğimiz pipe. ama ls -la|wc -l seklinde de gelebilir komut. bu durumda boşluğa göre ayıramayız.
+2 - WORD		ls -la echo		--> bunları direkt normal şekilde alacağız.
+3 - REDIRECT	> >> < <<		--> bu durumları da ayrıca ele alacağız.
+
+tırnak içleri tek bir eleman gibi değerlendirilmeli.
+
+tırnak açılıp kapanmamıssa detaya girmeye gerek yok error bas sonraki satıra geç
+
+çift tırnak içi ile tek tırnak içi durumları farklılık gösteriyor.
+çift tırnak içinde Expansion olayı da çalışmalı. ($ isareti)
+
