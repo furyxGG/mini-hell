@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   list_func.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/28 18:36:09 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/12/30 17:58:40 by fyagbasa         ###   ########.fr       */
+/*   Created: 2025/12/29 16:49:12 by fyagbasa          #+#    #+#             */
+/*   Updated: 2025/12/29 17:26:48 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "minishell.h"
+#include "minishell.h"
 
-void	minishell()
+t_words	*lst_new(char *word, char type)
 {
-	char	*line;
-	t_words *words;
-	
-	signal(SIGINT, handle_signal);
-	signal(SIGQUIT, SIG_IGN);
-	words = NULL;
-	while (1)
+	t_words	*list;
+
+	list = (t_words *)malloc(sizeof(t_words));
+	if (!list)
+		return (0);
+	list->word = word;
+	list->type = type;
+	list->next = NULL;
+	return (list);
+}
+
+void	lstadd_back(t_words **lst, t_words *new)
+{
+	t_words	*a;
+
+	if (!new)
+		return ;	
+	if (!*lst)
 	{
-		line = readline("mini-hell >> ");
-		if (line == NULL)
-		{
-			printf("exit\n");
-			rl_clear_history();
-			break;
-		}
-		if (*line)
-		{
-        	add_history(line);
-			words = parser(line);
-		}
-		printf("Girdi: %s\n", line);
-		free(line);
+		*lst = new;
+		return ;
 	}
-	(void)words;
+	a = *lst;
+	while (a->next)
+		a = a->next;
+	a->next = new;
 }

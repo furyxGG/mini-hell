@@ -3,10 +3,21 @@ yazılan komutta 3 temel eleman olabilir:
 2 - WORD		ls -la echo		--> bunları direkt normal şekilde alacağız.
 3 - REDIRECT	> >> < <<		--> bu durumları da ayrıca ele alacağız.
 
+o: redirect --> <>
+p: pipe		--> |
+w: word		--> asdf
+q: quote	--> '
+Q: doubleq	--> "
+
 tırnak içleri tek bir eleman gibi değerlendirilmeli.
 
-tırnak açılıp kapanmamıssa detaya girmeye gerek yok error bas sonraki satıra geç
+tırnak açılıp kapanmamıssa detaya girmeye gerek yok error bas veya görmezden gel sonraki satıra geç
 
 çift tırnak içi ile tek tırnak içi durumları farklılık gösteriyor.
 çift tırnak içinde Expansion olayı da çalışmalı. ($ isareti)
+
+-----------------------------------------------------------------------------------------------------------
+
+Expansion:
+$ eğer çift tırnak içindeyse(Q) veya normal kelime olarak geçiyorsa(w) o zaman sistemin env içinde ilgili variable bulunup yerine konulmalı.
 

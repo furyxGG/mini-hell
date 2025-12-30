@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fyagbasa <fyagbasa@student.42istanbul.com  +#+  +:+       +#+        */
+/*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 06:03:59 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/06/11 06:36:22 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2025/12/29 16:49:35 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
