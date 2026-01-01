@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 22:45:49 by fyagbasa          #+#    #+#             */
-/*   Updated: 2026/01/01 14:39:40 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2026/01/01 16:27:35 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,18 @@ char	*join_free(char *s1, char *s2)
     free(s1);
     free(s2);
     return (new);
+}
+
+void free_words_list(t_words *words)
+{
+    t_words *tmp;
+
+    while (words)
+    {
+        tmp = words->next;
+        if (words->word)
+            free(words->word);
+        free(words);
+        words = tmp;
+    }
 }

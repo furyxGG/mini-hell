@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 18:36:09 by fyagbasa          #+#    #+#             */
-/*   Updated: 2026/01/01 14:59:06 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2026/01/01 16:28:25 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	minishell()
 	
 	signal(SIGINT, handle_signal);
 	signal(SIGQUIT, SIG_IGN);
+	g_status_code = 0;
 	words = NULL;
 	while (1)
 	{
@@ -54,8 +55,8 @@ void	minishell()
 			expansion(words);
 		}
 		print_list(words);
-		printf("Girdi: %s\n", line);
 		free(line);
+		free_words_list(words);
 	}
 	(void)words;
 }
