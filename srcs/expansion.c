@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 18:27:42 by fyagbasa          #+#    #+#             */
-/*   Updated: 2026/01/01 16:21:15 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2026/01/01 17:47:54 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,29 @@ static void	do_changes(t_words *words, int *checker)
 		expansion_helper(words);
 }
 
+static void	do_one_node(t_words *words)
+{
+	t_words	*tmp;
+	t_words	*tmp2;
+
+	tmp = words;
+	while (tmp && tmp->next)
+	{
+		if (tmp->space_check == 0 && 
+            (tmp->type == 'w' || tmp->type == 'Q' || tmp->type == 'q') &&
+            (tmp->next->type == 'w' || tmp->next->type == 'Q' || tmp->next->type == 'q'))
+		{
+			tmp2 = tmp->next;
+			tmp->word = join_free(tmp->word, tmp->next->word);
+			tmp->next = tmp2->next;
+			tmp->space_check = tmp2->space_check;
+			free(tmp2);
+			continue ;
+		}
+		tmp = tmp->next;
+	}
+}
+
 void	expansion(t_words *words)
 {
 	t_words	*tmp;
@@ -72,6 +95,7 @@ void	expansion(t_words *words)
 		}
 		tmp = tmp->next;
 	}
+	do_one_node(words);
 }
 
 

@@ -21,3 +21,4 @@ tırnak açılıp kapanmamıssa detaya girmeye gerek yok error bas veya görmezd
 Expansion:
 $ eğer çift tırnak içindeyse(Q) veya normal kelime olarak geçiyorsa(w) o zaman sistemin env içinde ilgili variable bulunup yerine konulmalı.
 
+ayrıca eğer "furyx"$USER'selam' şeklinde bir girdi verilirse bunun tek girdi olarak alınması gerekiyor.
