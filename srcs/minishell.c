@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 18:36:09 by fyagbasa          #+#    #+#             */
-/*   Updated: 2026/01/01 16:28:25 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2026/01/01 19:18:59 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	minishell()
         	add_history(line);
 			words = parser(line);
 			expansion(words);
+			divide_pipe(words);
 		}
 		print_list(words);
 		free(line);

@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 16:49:12 by fyagbasa          #+#    #+#             */
-/*   Updated: 2026/01/01 17:31:50 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2026/01/01 19:20:13 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,18 @@ void	lstadd_back(t_words **lst, t_words *new)
 	while (a->next)
 		a = a->next;
 	a->next = new;
+}
+
+int	lst_count(t_words *words)
+{
+	int	a;
+
+	a = 0;
+	while (words)
+	{
+		if (!(words->type == 'w' && words->word[0] == '\0'))
+			a++;
+		words = words->next;
+	}
+	return (a);
 }
