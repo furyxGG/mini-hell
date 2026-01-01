@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 18:36:09 by fyagbasa          #+#    #+#             */
-/*   Updated: 2026/01/01 19:18:59 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2026/01/01 22:39:46 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,13 @@ void print_list(t_words *head)
     printf("--- Listenin Sonu ---\n");
 }
 
-void	minishell()
+void	minishell(char	**envt)
 {
 	char	*line;
 	t_words *words;
+	t_cmd	*cmd;
+
+	(void)envt;
 	
 	signal(SIGINT, handle_signal);
 	signal(SIGQUIT, SIG_IGN);
@@ -53,7 +56,8 @@ void	minishell()
         	add_history(line);
 			words = parser(line);
 			expansion(words);
-			divide_pipe(words);
+			cmd = divide_pipe(words);
+			find_path(cmd, envt);
 		}
 		print_list(words);
 		free(line);

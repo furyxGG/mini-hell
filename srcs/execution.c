@@ -6,7 +6,7 @@
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 17:54:36 by fyagbasa          #+#    #+#             */
-/*   Updated: 2026/01/01 22:10:28 by fyagbasa         ###   ########.fr       */
+/*   Updated: 2026/01/01 22:38:05 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,23 +83,26 @@ static void	create_args(t_words *words, t_cmd *cmd)
 	}
 }
 
-void	divide_pipe(t_words *words)
+t_cmd	*divide_pipe(t_words *words)
 {
 	t_cmd	*cmd;
 	int		a;
+	t_cmd	*tmp;
 
 	cmd = new_cmds();
 	create_args(words, cmd);
 	printf("inputfd: %d\n", cmd->fd_in);
 	printf("outputfd: %d\n", cmd->fd_out);
-	while (cmd)
+	tmp = cmd;
+	while (tmp)
 	{
 		a = 0;
-		while (cmd->args[a])
+		while (tmp->args[a])
 		{
-			printf("\narg: %s", cmd->args[a]);
+			printf("\narg: %s", tmp->args[a]);
 			a++;
 		}
-		cmd = cmd->next;
+		tmp = tmp->next;
 	}
+	return (cmd);
 }
