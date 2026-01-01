@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   free_func.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyagbasa <fyagbasa@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 16:21:10 by fyagbasa          #+#    #+#             */
-/*   Updated: 2025/12/30 18:40:36 by fyagbasa         ###   ########.fr       */
+/*   Created: 2025/12/30 22:45:49 by fyagbasa          #+#    #+#             */
+/*   Updated: 2026/01/01 14:39:40 by fyagbasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-int	ft_isalnum(int c)
+char	*join_free(char *s1, char *s2)
 {
-	if (ft_isalpha(c) || ft_isdigit(c) || c == '_')
-		return (1);
-	return (0);
+    char *new;
+    
+    new = ft_strjoin(s1, s2);
+    free(s1);
+    free(s2);
+    return (new);
 }
